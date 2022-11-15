@@ -1,4 +1,4 @@
-const ERROR_ACCESSOR_MSG = "Error handling db accessor";
+const ERROR_ACCESSOR_MSG = "Error handling db accessor: empty return";
 
 window.onload = function () {
 
@@ -110,10 +110,12 @@ function getLibraries(){
             let resp = xhr.responseText;
 
             try{
-                if(isValidResponse(resp)) buildLibraryContainer(JSON.parse(resp));
+                if(isValidResponse(resp)){
+                    buildLibraryContainer(JSON.parse(resp));
+                }
                 else{
                     console.log(ERROR_ACCESSOR_MSG);
-                    toggleMessage(ERROR_ACCESSOR_MSG);
+                    buildLibraryContainer([]);
                 }
             } catch(e){
                 console.log("Error handling getLibraries");
@@ -409,8 +411,8 @@ function buildLibraryTitles(currentTitles, availableTitles){
     let container = document.querySelector("#content-container-inner");
     let lib_no = currentTitles.lib_no;
     let lib_name = currentTitles.lib_name;
-    let owner_name = currentTitles.owner_name;
-    let title_no = currentTitles.title_no;
+    let owner_name = currentTitles.owner_name
+    let titles = currentTitles.titles.length === 0 ? null : currentTitles.titles;
     let hasGamesAvailable = (availableTitles.length === 0 ? false : true);
     let disabled = "";
     let html = "";
@@ -444,7 +446,7 @@ function buildLibraryTitles(currentTitles, availableTitles){
     
     // current games library
     html += "               <div id='current_titles_container' >";
-    if(title_no === null){
+    if(titles === null){
         html += "               <div class='lib-item-empty'>Your library is empty!</div>";
     } else {
         html += "               <div class='library-section'>Current list</div>";

@@ -1,5 +1,7 @@
 <?php
-$path = $_SERVER['DOCUMENT_ROOT'] . '/las/a6-crud-entities-accessors';
+$url = explode("/", $_SERVER['REQUEST_URI']);
+$path = $_SERVER['DOCUMENT_ROOT'] . "/" . $url[1] . "/" . $url[2];
+// $path = $_SERVER['DOCUMENT_ROOT'] . '/las/a6-crud-entities-accessors';
 
 require ("connectionManager.php");
 require ("../entities/Library.php");
@@ -53,7 +55,8 @@ class accessorManager {
                                        " INNER JOIN titles t on t.title_no = tp.title_no " .
                                        " INNER JOIN platforms p on p.platf_no = tp.platf_no " .
                                        " WHERE tp.titleplatf_no NOT IN(SELECT titleplatf_no FROM lib_titles lt WHERE lib_no = :lib_no); ";
-    private $createTitleQuery        = " INSERT INTO lib_titles VALUES(:lib_no,:titleplatf_no);";
+    private $createTitleQuery        = " INSERT INTO lib_titles VALUES(:lib_no,:titleplatf_no); " .
+                                       " UPDATE libraries SET update_date = NOW() WHERE lib_no = :lib_no; ";
     private $deleteTitleQuery        = " DELETE FROM lib_titles WHERE lib_no = :lib_no AND titleplatf_no = :titleplatf_no; ";
 
     public function __construct(){

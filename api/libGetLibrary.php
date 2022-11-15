@@ -2,8 +2,8 @@
 
 require ("../db/accessorManager.php");
 
-$lib_no = json_decode(file_get_contents("php://input"), true)["lib_no"];
-$dummyObj = new Library($lib_no, null, null, null, null, null);
+$data = json_decode(file_get_contents("php://input"), true);
+$dummyObj = new Library($data["lib_no"], null, null, null, null, null);
 
 try {
     $am = new accessorManager();
