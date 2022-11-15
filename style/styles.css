@@ -1,0 +1,408 @@
+/* 
+    Created on : Oct 10, 2022, 1:21:39 PM
+    Author     : Leonardo
+*/
+
+body{
+    background-color: #f5f6f8;
+    color: #363638;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    font-family: Helvetica, Aria, sans-serif;
+    margin: auto;
+}
+
+table, td, th {
+    align-items: center;
+    /*color: #FFFFFF;*/
+    /*border-spacing: 5px 1rem;*/
+    text-align: left;
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/*tr:last-child td {
+    text-align: center;
+}*/
+
+a{
+    text-decoration: none;
+    /*color: #363638;*/
+    color: #ffffff;
+}
+
+.header-container{
+    background-color: #11438a;
+    margin-bottom: 15px;
+}
+
+.header-container-course{
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.header-container-title{
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    font-size: 2em;
+}
+
+.menu-container{
+    width: 765px;
+    /*background-color: red;*/
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 35px;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.content-container{
+    min-height: calc(100vh - 250px);
+}
+
+.message-container{
+    
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    text-align: center;
+    display: none;
+    /* display: grid; */
+
+    z-index: 1;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.show{
+    display: grid;
+}
+
+.message-container > div{
+    padding: 15px;
+    border-radius: 30px;
+    /* display: inline-block; */
+    border: solid 1px #22cc00;
+    background-color: #d5ffcc;
+    color: #22cc00;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.library-container{
+    width: 735px;
+    background-color: #ffffff;
+    border: solid 0px #e6e6e6;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+.library-section {
+    text-align: center;
+    /*margin-top: 30px;*/
+    margin-bottom: 10px;
+    /*font-size: 1.2em;*/
+}
+
+.library-titles-input{
+    text-align: center;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 325px;
+    border-radius: 5px;
+    background-color: #f5f6f8;
+    margin-bottom: 30px;
+}
+
+.library-titles-input > select{
+    border: 0px;
+    background-color: #f5f6f8;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 330px;
+}
+
+.library-titles-input > input[type=text]{
+    background-color: #f5f6f8;
+    border: none;
+    display: inline-block;
+    width: calc(100% - 20px);
+    padding: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 1em;
+}
+
+.lib-name{
+    display: inline-block;
+    color: #1964cc;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.lib-buttons{
+    display: inline-block;
+    float: right;
+    display: flex;
+}
+
+.lib-buttons-add, .lib-buttons-update, .lib-buttons-delete{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    margin-right: 5px;
+    border-radius: 20px;
+    background-color: #9699a6;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.lib-buttons-add:hover, .lib-buttons-update:hover, .lib-buttons-delete:hover{
+    /*background-color: #11438a;*/
+    background-color: #5e616e;
+}
+
+.lib-buttons-remove{
+    border: none;
+    cursor: pointer;
+    padding: 0px;
+    background-color: transparent;
+    font-size: 1em;
+}
+
+.lib-owner, .lib-creation-date{
+    font-size: .9em;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    /*background-color: blue;*/
+}
+.lib-owner{
+    margin-bottom: 0px;
+}
+
+.lib-header-container{
+    display: flex;
+}
+
+.lib-header{
+    /*background-color: #f5f6f8;*/
+    display: inline-block;
+    margin-right: 5px;
+    /*border-radius: 5px;*/
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: .8em;
+}
+
+.lib-header-title{
+    width: 315px;
+}
+
+.lib-header-no-remove{
+    width: 365px;
+}
+
+.lib-header-platf{
+    width: 85px;
+}
+
+.lib-header-type{
+    width: 70px;
+}
+
+.lib-header-publi{
+    width: 125px;
+}
+
+.lib-header-remove{
+    /*width: 41px;*/
+}
+
+.lib-items{
+    display: flex;
+}
+
+.lib-items:last-child > div{
+    margin-bottom: 0px;
+}
+
+.lib-item{
+    display: inline-block;
+    background-color: #f5f6f8;
+    /*padding: 15px;*/
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 48px;
+    line-height: 48px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.lib-item:last-child{
+    margin-right: 0px;
+}
+
+/*.lib-item:last-child:hover{
+    background-color: #e6e7eb;
+}*/
+
+.lib-item-title{
+    width: 300px;
+    font-size: 0.9em;
+    text-align: left;
+}
+
+.lib-item-no-remove{
+    width: 345px;
+}
+
+.lib-item-manuf-nintendo{
+    border-left: solid 5px #f5001d;
+}
+
+.lib-item-manuf-sony{
+    border-left: solid 5px #0052f5;
+}
+
+.lib-item-manuf-microsoft{
+    border-left: solid 5px #29f500;
+}
+
+.lib-item-manuf-sega{
+    border-left: solid 5px #6e00f5;
+}
+
+.lib-item-manuf-mobile{
+    border-left: solid 5px #f5b400;
+}
+
+.lib-item-manuf-pc{
+    border-left: solid 5px #808080;
+}
+
+.lib-item-platf, .lib-item-type, .lib-item-publi, .lib-item-remove{
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.lib-item-platf{
+    width: 75px;
+}
+
+.lib-item-type{
+    width: 60px;
+}
+
+.lib-item-publi{
+    width: 115px;
+}
+
+.lib-item-remove{
+    width: 10px;
+}
+
+.lib-item-remove:hover{
+    background-color: #e6e7eb;
+}
+
+.lib-item-empty{
+    color: #1964cc;
+    font-size: 1em;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.last-button{
+    text-align: center;
+}
+
+.button{
+    padding: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #FFFFFF;
+    background-color: #1964cc;
+    font-size: .9em;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    cursor: pointer;
+    transition: .5s;
+    display: inline-block;
+    color: #ffffff;
+    text-align: center;
+}
+
+.button:hover{
+    background-color: #11438a;
+}
+
+.button:disabled{
+    background-color: gainsboro;
+    cursor: auto;
+}
+
+.button-disabled{
+    background-color: gainsboro;
+    cursor: auto;
+}
+
+.button-disabled:hover{
+    background-color: gainsboro;
+    cursor: auto;
+}
+
+.icon-back{
+    font-family: Consolas,Menlo,"courier new",monospace;
+    letter-spacing: 10px;
+}
+
+.button-disabled-old{
+    border: solid 1px #363638;
+    display: inline-block;
+    /* color: #9699a6; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+    font-size: 0.9em;
+}
+
+.footer-container{
+    margin-top: 30px;
+    background-color: #06162d;
+    color: white;
+    text-align: left;
+    padding: 30px;
+    font-size: 0.8em;
+}
